@@ -1,16 +1,27 @@
 # Url_Encoding
 
-## Краткое описание проекта.
+## Стек технологий в проекте
+
+* Python
+* Django
+* Django REST Framework
+
+## Описание проекта
+
+URL Encoding - это Django-проект, предоставляющий API для кодирования URL-адресов. API позволяет пользователям отправлять незакодированные URL-адреса и получать их закодированные версии в ответе. 
 
 ## Установка и запуск проекта
 
-Скачайте и установите Python. Вы можете загрузить установщик Python с официального сайта Python (https://www.python.org) и следовать инструкциям по установке.
+Скачайте проект. Используйте следующую команду:
+
+```git clone https://github.com/AndreiEvtushenko/Url_Encoding.git```
 
 Создайте и активируйте виртуальное окружение. Виртуальное окружение поможет вам изолировать зависимости проекта. Используйте следующие команды:
 
-python -m venv myenv       # Создание виртуального окружения
-source myenv/bin/activate # Активация виртуального окружения (для Unix/Linux)
-myenv\Scripts\activate    # Активация виртуального окружения (для Windows)
+
+```python -m venv venv```      # Создание виртуального окружения
+```source venv/bin/activate``` # Активация виртуального окружения (для Unix/Linux)
+```source venv\Scripts\activate```    # Активация виртуального окружения (для Windows)
 
 Установите зависимости проекта. Выполните следующую команду:
 
@@ -18,30 +29,30 @@ pip install -r requirements.txt
 
 Запустите сервер разработки Django. Используйте следующую команду:
 
-python manage.py runserver
-Сервер будет запущен на http://localhost:8000/.
+```python manage.py runserver```
+Сервер будет запущен на ```http://localhost:8000/```.
 
-Использование эндпоинта
+## Использование эндпоинта
+
 Откройте Postman или любой другой инструмент для тестирования API.
 
 Для кодирования ссылки, отправьте GET-запрос на эндпоинт /encode_url/ с параметром url, содержащим незакодированную ссылку.
 
 Пример запроса в Postman:
 
-GET http://localhost:8000/encode_url/?url=http://example.com
+```GET http://localhost:8000/encode_url/?url=http://example.com```
 
 Замените http://example.com на вашу незакодированную ссылку.
 
 Вы получите ответ с закодированной ссылкой в формате JSON:
-
+```json
 {
     "encoded_url": "http%3A%2F%2Fexample.com"
 }
-
+```
 При некорректном вводе url, вы получите следующий ответ:
-
+```json
 {
-    "url": [
-        "Enter a valid URL."
-    ]
+    "url": ["Enter a valid URL."]
 }
+```
